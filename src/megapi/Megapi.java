@@ -15,7 +15,7 @@ public class Megapi {
 	public static void main(String[] args) throws IOException {		
 	   File file = new File( System.getProperty("user.home")  + "\\MegaPi_1000.txt");
 	   FileWriter fw = new FileWriter(file);
-	   pistring = pi(Integer.parseInt("1000"));
+	   pistring = pi(Integer.parseInt("10000"));
 	   fw.append( pistring.toString());
 	   fw.close();
 	   System.out.println(pi(Integer.parseInt("50")));
