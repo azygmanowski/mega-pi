@@ -12,10 +12,15 @@ public class Megapi {
     private static final BigDecimal FOUR = new BigDecimal(4);
 	static BigDecimal pistring;
 	
-	public static void main(String[] args) throws IOException {		
-	   File file = new File( System.getProperty("user.home")  + "\\MegaPi_1000.txt");
+	public static void main(String[] args) throws IOException {
+		
+  	   //Anzahl zu berechnender Nachkommastellen
+	   String digits = "10000";	
+  	   
+	   File file = new File( System.getProperty("user.home")  + "\\MegaPi_" + digits + ".txt");
 	   FileWriter fw = new FileWriter(file);
-	   pistring = pi(Integer.parseInt("10000"));
+	   
+	   pistring = pi(Integer.parseInt(digits));
 	   fw.append( pistring.toString());
 	   fw.close();
 	   System.out.println(pi(Integer.parseInt("50")));
