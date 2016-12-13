@@ -13,9 +13,9 @@ public class Megapi {
 	static BigDecimal pistring;
 	
 	public static void main(String[] args) throws IOException {
-		
+	long startzeit = System.currentTimeMillis();	
   	   //Anzahl zu berechnender Nachkommastellen
-	   String digits = "10000";	
+	   String digits = "200000";	
   	   
 	   File file = new File( System.getProperty("user.home")  + "\\MegaPi_" + digits + ".txt");
 	   FileWriter fw = new FileWriter(file);
@@ -24,7 +24,10 @@ public class Megapi {
 	   fw.append( pistring.toString());
 	   fw.close();
 	   System.out.println(pi(Integer.parseInt("50")));
-	   System.out.println("done!");	   		
+	   System.out.println("done!");	   	
+	   System.out.println("Rechenzeit: " + (System.currentTimeMillis() - startzeit)/1000 + " Sekunden");	   	
+	   
+	   
 	}
 
 	// Gauss-Legendre Algorithmus
