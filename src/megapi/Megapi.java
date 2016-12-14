@@ -15,7 +15,7 @@ public class Megapi {
 	public static void main(String[] args) throws IOException {
 	long startzeit = System.currentTimeMillis();	
   	   //number of digits to calculate
-	   String digits = "10000";	
+	   String digits = "20000";	
   	   
 	   File file = new File( System.getProperty("user.home")  + "\\MegaPi_" + digits + ".txt");
 	   FileWriter fw = new FileWriter(file);
