@@ -3,7 +3,7 @@ package megapi;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-//Große Zahlen ermöglichen
+//enable big decimal numbers
 import java.math.BigDecimal;
 import static java.math.BigDecimal.*;
 
@@ -14,8 +14,8 @@ public class Megapi {
 	
 	public static void main(String[] args) throws IOException {
 	long startzeit = System.currentTimeMillis();	
-  	   //Anzahl zu berechnender Nachkommastellen
-	   String digits = "200000";	
+  	   //number of digits to calculate
+	   String digits = "10000";	
   	   
 	   File file = new File( System.getProperty("user.home")  + "\\MegaPi_" + digits + ".txt");
 	   FileWriter fw = new FileWriter(file);
@@ -24,15 +24,15 @@ public class Megapi {
 	   fw.append( pistring.toString());
 	   fw.close();
 	   System.out.println(pi(Integer.parseInt("50")));
-	   System.out.println("done!");	   	
-	   System.out.println("Rechenzeit: " + (System.currentTimeMillis() - startzeit)/1000 + " Sekunden");	   	
+	   System.out.println("Done!");	   	
+	   System.out.println("Calculating time: " + (System.currentTimeMillis() - startzeit)/1000 + " seconds");	   	
 	   
 	   
 	}
 
-	// Gauss-Legendre Algorithmus
+	// Gauss-Legendre algorithm
     public static BigDecimal pi(final int SCALE) {
-       int zaehler = 0;
+       int counter = 0;
        BigDecimal a = ONE;
        BigDecimal b = ONE.divide(sqrt(TWO, SCALE), SCALE, ROUND_HALF_UP);
        BigDecimal test = ONE;
@@ -46,14 +46,14 @@ public class Megapi {
           t = t.subtract(x.multiply(y.subtract(a).multiply(y.subtract(a))));
           x = x.multiply(TWO);
           test = a.subtract(b);
-          //zum Anzeigen daß sich etwas 'bewegt' (ab 100000 sinnvoll, da Rechnenzeit recht hoch)
-          System.out.println(zaehler + " a - b: " + test );
-          zaehler++;
+          //show that process is still alive, cause it's very slow from 100.000 digits and above 
+          System.out.println(counter + " a - b: " + test );
+          counter++;
        }
        return a.add(b).multiply(a.add(b)).divide(t.multiply(FOUR), SCALE, ROUND_HALF_UP);
     }
     
-    // Babylonische-Quadratwurzel nach Newton
+    // babylonian square root, Newton
     public static BigDecimal sqrt(BigDecimal A, final int SCALE) {
        BigDecimal x0 = new BigDecimal("0");
        BigDecimal x1 = new BigDecimal(Math.sqrt(A.doubleValue()));
